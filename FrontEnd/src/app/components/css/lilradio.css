@@ -1,0 +1,148 @@
+$radio_box_color: white;
+$radio_box_border_color: black;
+$radio_panel_border_color: black;
+$radio_tuner_color: #979797;
+$radio_panel_color: rgba(240,230,140,0.2);
+$radio_antenna_color: black;
+$preload_text_color: black;
+$preloader_background_color: rgba(244, 244, 244, 1);
+$tablet_res_width: 1205px;
+$phone_res_width: 740px;
+
+.preload-text
+{
+  color: $preload_text_color;
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  font-style: italic;
+  margin-top: 30%;
+  @media( width < $tablet_res_width)
+  {
+    margin-top: 30%;
+  }
+  font-size: 15px;
+  word-spacing: 2px;
+  @media( width < $phone_res_width)
+  {
+    margin-top: 30%;
+    text-align: center;
+    word-spacing: initial;
+  }
+}
+
+.preloader{
+  position:absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $preloader_background_color;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 5px rgba(230, 230, 230, 1);
+}
+
+.preload-radio {
+  width: 47px;
+  height: 66px;
+  
+  transform:rotateY(180deg)
+}
+
+.radio-box {
+  background: $radio_box_color;
+  width: 40px;
+  height: 40px;
+  border: $radio_box_border_color solid;
+  border-top-right-radius: 8px;
+}
+
+.radio-antenna-container {
+  height: 20px;
+  width: 10px;
+}
+
+.radio-antenna {
+  width: 1px;
+  height: 20px;
+  border: $radio_antenna_color solid;
+  border-bottom: 0px;
+  border-right: 0px;
+  z-index:-1
+}
+
+.radio-bleep, .radio-bleep2 {
+  z-index: -1;
+  animation-name: bleeper;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  position: relative;
+  height: 80px;
+  width: 80px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 100px;
+  top: -47px;
+  right: 43px;
+}
+
+.radio-bleep2 {
+  z-index: -1;
+  animation-duration: 2s;
+  height: 100px;
+  width: 100px;
+  top: -138px;
+  right: 53px;
+}
+
+@keyframes bleeper {
+  0% {
+    transform: scale(0, 0);
+    border-color: rgba(0, 0, 0, 1);
+  }
+  100% {
+    border-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.radio-panel {
+  margin: 5px;
+  width: 27px;
+  height: 10px;
+  border: $radio_panel_border_color solid;
+  border-width: 2px;
+  border-radius: 2px;
+  background-color: $radio_panel_color
+}
+
+.radio-tuner {
+  animation-name: tuner;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  margin-top: 1px;
+  margin-left: 2px;
+  height: 9px;
+  width: 2px;
+  background-color: $radio_tuner_color
+}
+
+@keyframes tuner {
+  0% {
+    transform: translate(0, 0)
+  }
+  50% {
+    transform: translate(20px, 0)
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.radio-speaker {
+  margin: 5px 5px 10px 5px;
+  height: 10px;
+  background: repeating-linear-gradient( 180deg, #979797, #fff 2px);
+}
+

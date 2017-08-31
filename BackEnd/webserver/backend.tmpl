@@ -1,0 +1,73 @@
+# normally you leave this at the default of 1024
+events 
+{
+    worker_connections 1024;
+}
+
+http
+{
+	upstream django 
+	{
+        	server web:8001;
+	}
+
+	server 
+	{
+		include /etc/nginx/mime.types;
+		listen 80;
+		server_name ${NGINX_SERVER_NAME};
+		
+		location /code/creepy_crawly/media/request/
+		{
+			rewrite ^/code/creepy_crawly/media/request/(.*)$ http://${DOLLAR}1 permanent;
+		}
+		
+		location /code/creepy_crawly/media/
+		{
+			alias /code/creepy_crawly/media/;
+		}
+		
+		location /code/creepy_crawly/media
+		{
+			alias /code/creepy_crawly/media/;
+		}
+		
+		location /static-django
+		{
+			alias /code/backend/static-django/;
+		}
+		
+		location /admin 
+		{
+			uwsgi_pass      django;
+			include     /code/webserver/uwsgi_params;
+		}
+
+		location /api 
+		{
+			uwsgi_pass      django;
+			include     /code/webserver/uwsgi_params;
+		}
+		
+		location @proxy 
+		{
+			resolver 127.0.0.11 valid=300s;
+			proxy_set_header   Host            ${DOLLAR}host;
+			proxy_set_header   X-Real-IP       ${DOLLAR}remote_addr;
+			proxy_set_header   X-NginX-Proxy   true;
+			proxy_set_header   X-Forwarder-For ${DOLLAR}proxy_add_x_forwarded_for;
+			proxy_read_timeout 1m; 
+			proxy_http_version 1.1;
+			proxy_redirect     off;
+			proxy_buffering    off;
+			set ${DOLLAR}upstream_node proxy;
+			
+			proxy_pass   http://${DOLLAR}upstream_node:8080;
+		}
+		
+		location / 
+		{
+			try_files $uri $uri/ @proxy;
+		}
+    }
+}

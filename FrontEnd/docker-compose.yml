@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+ proxy: 
+  build: .
+  container_name: webapp
+  ports:
+   - "8080:8080"
+  volumes:
+   - .:/usr/src/app/
+  environment:
+   - DEV=1
+   - WIN_HOST=0
+   - DEV_HOST=192.168.99.100
+  entrypoint: ./proxy-entrypoint.sh
+   #https://github.com/Andyccs/sample-docker-webpack/blob/v4/docker-compose.yml

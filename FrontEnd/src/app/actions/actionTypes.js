@@ -1,0 +1,5 @@
+export const INCREMENT = "INCREMENT"
+export const DECREMENT = "DECREMENT"
+
+export const REQUEST_ARTICLES = 'REQUEST_ARTICLES'
+export const SUBJECTS = 'REQUEST_ARTICLES'

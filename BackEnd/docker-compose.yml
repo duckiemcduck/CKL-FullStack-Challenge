@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+    env_file:
+    - ./env/db.env
+  web:
+    build: .
+    env_file:
+      - ./env/web.env
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    depends_on:
+      - db
+    entrypoint: /code/wait-for-it.sh db:5432 -t 0 -- /code/web-entrypoint.sh
+  crawler:
+    build:
+     context: ./crawler-source/
+    env_file:
+     - ./env/db.env
+    volumes:
+     - ./crawler-source/:/env/
+    command: /env/wait-for-it.sh web:8001 -t 0 -- /env/crawler-entrypoint.sh
+  webserver:
+   build:
+    context: .
+    dockerfile: Dockerfile-webserver
+   container_name: webserver
+   volumes:
+     - .:/code
+   environment:
+     - PROXY_NAME=localhost
+   ports:
+     - "80:80"
+     - "443:443"
+   env_file:
+     - ./env/webserver.env
+   depends_on:
+      - web
+   entrypoint: /code/wait-for-it.sh web:8001 -t 0 -- /code/webserver-entrypoint.sh

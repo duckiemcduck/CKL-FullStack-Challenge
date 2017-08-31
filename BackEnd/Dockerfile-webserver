@@ -1,0 +1,9 @@
+FROM nginx
+RUN mkdir /code
+ADD . /code
+WORKDIR /code
+RUN chmod +x /code/wait-for-it.sh
+RUN chmod +x /code/webserver-entrypoint.sh
+RUN ls -l
+
+EXPOSE 80
