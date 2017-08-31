@@ -28,7 +28,7 @@ Despite being a reasonably sized project, its deployment is fairly simple:
 
 If on Linux, it should be listening at http://localhost . 
 
-If on docker-machine, and consequently on Windows, you will have to change `WINDOWS_HOST` in the docker-compose.yml file to `1`. This will have it run off the docker-machine's address (usually http://192.168.99.100 ) on port `80`.
+If on docker-machine, and consequently on Windows, you will have to change `WIN_HOST` in the [docker-compose.yml](https://github.com/duckiemcduck/CKL-FullStack-Challenge/blob/master/docker-compose.yml#L68) file to `1`. This will have it run off the docker-machine's address (usually http://192.168.99.100 ) on port `80`.
 
 >The reason for this is that yarn struggles to perform the links to binary module files under a machine in a Windows volume, so extra steps are taken and different commands are used.
 
