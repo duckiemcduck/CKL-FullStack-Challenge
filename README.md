@@ -27,7 +27,9 @@ Despite being a reasonably sized project, its deployment is fairly simple:
 3. Run `docker-compose up` in the containing folder.
 
 If on Linux, it should be listening at http://localhost . 
+
 If on docker-machine, and consequently on Windows, you will have to change `WINDOWS_HOST` in the docker-compose.yml file to `1`. This will have it run off the docker-machine's address (usually http://192.168.99.100 ) on port `80`.
+
 >The reason for this is that yarn struggles to perform the links to binary module files under a machine in a Windows volume, so extra steps are taken and different commands are used.
 
 ## General Information 
@@ -43,5 +45,11 @@ Default access credentials for the admin panel are:
 2. password: cheesecake
 
 *The repository does not accompany default images.* These may be added/modified through the admin panel.
+
+If for whatever reason you'd like to look at the commit history and development process, you may look through the original BitBucket repositories:
+
+https://bitbucket.org/duckiemcduck/ckl1_backend_lucas_bandeira
+
+https://bitbucket.org/duckiemcduck/ckl1_frontend_lucas_bandeira
 
 Access the individual stack folders for more details on each respective end of the challenge.
