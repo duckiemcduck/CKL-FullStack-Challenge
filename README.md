@@ -3,7 +3,7 @@
 This is my take on the CheesecakeLabs' Full-stack challenge.
 
 The challenge required participants to:
- * Create a Single Page Application with React.js/Redux.js that displays and filters through news subjects from an external feed; 
+ * Create a Single Page Application with React.js/Redux.js that displays and filters through news subjects from an external feed, it should precisely follow the provided mockups;
  * Insert the article contents; hero pictures, subjects, authors, author profile pictures, dates and links from the external news website into a Database;
  * Serve the contents from the Database to the front-end app through a RESTful API; 
  * Configure an user-friendly admin panel that allows manual insertion of articles, authors and their respective hero images;
@@ -17,6 +17,10 @@ The challenge required participants to:
 
 The FullStack is orchestrated with Docker v17.0.5 CE and docker-compose v 1.13.0.
 
+A preview of the stack with its crawler service running can be seen here:
+![https://i.imgur.com/eONDCQr.gif](https://i.imgur.com/eONDCQr.gif)
+
+The layout is also [responsive](https://i.imgur.com/vDA8VZi.gif).
 
 # Setting up
 
