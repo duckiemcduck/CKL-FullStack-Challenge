@@ -3,7 +3,7 @@
 This is my take on the CheesecakeLabs' Full-stack challenge.
 
 The challenge required participants to:
- * Create a Single Page Application with React.js/Redux.js that displays and filters through news subjects from an external feed, it should precisely follow the provided mockups;
+ * Create a Single Page Application with React.js/Redux.js that displays and filters through news subjects from an external feed, it should precisely follow [the provided mockups](https://imgur.com/a/sOMxM);
  * Insert the article contents; hero pictures, subjects, authors, author profile pictures, dates and links from the external news website into a Database;
  * Serve the contents from the Database to the front-end app through a RESTful API; 
  * Configure an user-friendly admin panel that allows manual insertion of articles, authors and their respective hero images;
