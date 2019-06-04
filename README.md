@@ -1,3 +1,4 @@
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Flucasgcb%2FCKL-FullStack-Challenge.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Flucasgcb%2FCKL-FullStack-Challenge?ref=badge_shield)
 # About Creepy_Crawly #
 
 This is my take on the CheesecakeLabs' Full-stack challenge.
