@@ -20,8 +20,6 @@ The FullStack is orchestrated with Docker v17.0.5 CE and docker-compose v 1.13.0
 
 A preview of the stack with its crawler service running can be seen here:
 ![https://i.imgur.com/eONDCQr.gif](https://i.imgur.com/eONDCQr.gif)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Flucasgcb%2FCKL-FullStack-Challenge.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Flucasgcb%2FCKL-FullStack-Challenge?ref=badge_shield)
-
 The layout is also [responsive](https://i.imgur.com/vDA8VZi.gif).
 
 # Setting up
